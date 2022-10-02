@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="PAYLIDAR. Переадресация в приложение Сбер...>">
+    <meta property="og:description" content="Быстрый перевод по QR коду в приложении Сбер.">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/.favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <title>PAYLIDAR. Переадресация в приложение Сбер...</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            font-size: 20px;
+            font-family: 'Arial', serif;
+            height: 100%;
+            display: flex;
+            align-content: center;
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <p>Переадресация в приложение Сбер...<br><br>Подождите несколько секунд...</p>
+    <script>
+        function checkPlatform(ua) {
+            if (/android/gi.test(ua)) return 'android';
+            else if (/iphone|ipod/gi.test(ua)) return 'ios';
+            return false;
+        }
+
+        function getParam(key) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(key);
+        }
+
+        const phoneNumber = getParam('phoneNumber');
+        const platform = checkPlatform(navigator.userAgent);
+
+        if(platform === 'ios') window.location.href = 'sberbankonline://payments/p2p-by-phone-number?phoneNumber=' + phoneNumber;
+        else if(platform === 'android') window.location.href = 'android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/payments/p2p?type=contact&phoneNumber=+79138856987android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/payments/p2p?type=contact&phoneNumber=' + phoneNumber;
+    </script>
+</body>
+</html>
