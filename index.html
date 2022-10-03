@@ -43,7 +43,7 @@
         const platform = checkPlatform(navigator.userAgent);
 
         if(platform === 'ios') window.location.href = 'sberbankonline://payments/p2p-by-phone-number?phoneNumber=' + phoneNumber;
-        else if(platform === 'android') window.location.href = 'android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/payments/p2p?type=contact&phoneNumber=+79138856987android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/payments/p2p?type=contact&phoneNumber=' + phoneNumber;
+        else if(platform === 'android') window.location.href = 'android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/payments/p2p?type=contact&phoneNumber=' + phoneNumber;
     </script>
 </body>
 </html>
